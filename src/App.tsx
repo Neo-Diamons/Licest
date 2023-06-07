@@ -1,24 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { List } from "./List";
+import { Data } from "./data";
+
+type DataType = {
+  name: string;
+  image: string;
+  season: number;
+  release: string | null;
+}
+
 function App() {
+  let listCurrent: DataType[] = [];
+  let listAnnounce: DataType[] = [];
+  let listFinish: DataType[] = [];
+
+  Data.forEach((data) => {
+    if (data.current) {
+      listCurrent.push(data);
+    } else if (data.release !== null) {
+      listAnnounce.push(data);
+    } else {
+      listFinish.push(data);
+    }
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-header">
+        <h1>Licest</h1>
+      </div>
+      <div className="App-body">
+        <List name="In Progress" list={listCurrent} />
+        <List name="Announce" list={listAnnounce} />
+        <List name="Finish" list={listFinish} />
+      </div>
     </div>
   );
 }
