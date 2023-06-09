@@ -5,9 +5,11 @@ import { List } from "./List";
 import { Data } from "./data";
 
 type DataType = {
+  id: number;
   name: string;
   image: string;
   season: number;
+  current: boolean;
   release: string | null;
 }
 

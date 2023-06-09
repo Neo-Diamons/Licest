@@ -2,12 +2,14 @@ import React from "react";
 import "./List.css";
 
 import { Cards } from './Cards';
-import { ReactComponent as Arrow } from './arrow.svg';
+import { ReactComponent as Arrow } from '../svg/arrow.svg';
 
 type DataType = {
+  id: number;
   name: string;
   image: string;
   season: number;
+  current: boolean;
   release: string | null;
 }
 
