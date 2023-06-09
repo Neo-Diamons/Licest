@@ -1,18 +1,9 @@
 import React from "react";
 import "./Cards.css";
 
-type DataType = {
-  name: string;
-  image: string;
-  season: number;
-  publish: string | null;
-}
+import { DataType } from "../types/DataType";
 
-type Props = {
-  data: DataType;
-}
-
-export const Cards = (props: Props) => {
+export const Cards = (props: { data: DataType }) => {
   let description;
 
   if (props.data.publish !== null) {

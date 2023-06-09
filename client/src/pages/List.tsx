@@ -2,23 +2,10 @@ import React from "react";
 import "./List.css";
 
 import { Cards } from './Cards';
+import { DataType } from "../types/DataType";
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
 
-type DataType = {
-  id: number;
-  name: string;
-  image: string;
-  season: number;
-  current: boolean;
-  publish: string | null;
-}
-
-type Props = {
-  name: string;
-  list: DataType[];
-}
-
-export const List = (props: Props) => {
+export const List = (props: { name: string; list: DataType[] }) => {
   const [open, setOpen] = React.useState(true);
   const rotate = open ? "rotate(0deg)" : "rotate(-90deg)";
 

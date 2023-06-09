@@ -2,15 +2,7 @@ import React, { useEffect } from "react";
 import './App.css';
 
 import { List } from "./List";
-
-type DataType = {
-  id: number;
-  name: string;
-  image: string;
-  season: number;
-  current: boolean;
-  publish: string | null;
-}
+import { DataType } from "../types/DataType";
 
 function App() {
   let listCurrent: DataType[] = [];
