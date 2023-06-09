@@ -5,21 +5,6 @@ import './index.css';
 import App from './pages/App';
 import reportWebVitals from './reportWebVitals';
 
-import express from "express";
-import { Application, Response, Request } from "express";
-
-const app: Application = express();
-
-app.get("/", (req: Request, res: Response) => {
-    res.send("Hello World!");
-});
-
-const port = 8080;
-
-app.listen(port, () => {
-    console.log("Server running on port" + port);
-});
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
