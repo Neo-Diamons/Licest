@@ -33,4 +33,18 @@ export const Data = [{
   season: 1,
   current: false,
   release: null
+}, {
+  id: 6,
+  name: "Oshi no Ko",
+  image: "https://fr.web.img4.acsta.net/pictures/23/03/27/09/50/3692966.jpg",
+  season: 1,
+  current: true,
+  release: null
+}, {
+  id: 7,
+  name: "Fire Force",
+  image: "https://img1.ak.crunchyroll.com/i/spire4/aab5d51e5e199851554d3910b2ecdff21594706748_full.jpg",
+  season: 2,
+  current: false,
+  release: null
 }]
