@@ -10,7 +10,7 @@ type DataType = {
   image: string;
   season: number;
   current: boolean;
-  release: string | null;
+  publish: string | null;
 }
 
 type Props = {

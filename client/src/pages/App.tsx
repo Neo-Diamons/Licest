@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import './App.css';
 
 import { List } from "./List";
-import { Data } from "./data";
 
 type DataType = {
   id: number;
@@ -10,7 +9,7 @@ type DataType = {
   image: string;
   season: number;
   current: boolean;
-  release: string | null;
+  publish: string | null;
 }
 
 function App() {
@@ -18,10 +17,27 @@ function App() {
   let listAnnounce: DataType[] = [];
   let listFinish: DataType[] = [];
 
-  Data.forEach((data) => {
+  const [listData, setListData] = React.useState<DataType[]>([]);
+
+  const fetchData = () => {
+    fetch("http://localhost:8080/cards")
+      .then(response => {
+        return response.json()
+      }).then(data => {
+        setListData(data)
+      }).catch(function(error) {
+        console.log('Request failed', error)
+      });
+  }
+
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  listData.forEach((data) => {
     if (data.current) {
       listCurrent.push(data);
-    } else if (data.release !== null) {
+    } else if (data.publish !== null) {
       listAnnounce.push(data);
     } else {
       listFinish.push(data);

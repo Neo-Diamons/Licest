@@ -5,7 +5,7 @@ type DataType = {
   name: string;
   image: string;
   season: number;
-  release: string | null;
+  publish: string | null;
 }
 
 type Props = {
@@ -15,8 +15,8 @@ type Props = {
 export const Cards = (props: Props) => {
   let description;
 
-  if (props.data.release !== null) {
-    description = <p>{props.data.release}</p>
+  if (props.data.publish !== null) {
+    description = <p>{props.data.publish}</p>
   }  else if (props.data.season !== 1) {
     description = <p>Season {props.data.season}</p>
   }
