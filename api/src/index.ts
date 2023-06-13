@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 const connection = mysql.createConnection({
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
-    password: process.env.DB_PASSWORD,
+    password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE,
     port: 3306,
 });
