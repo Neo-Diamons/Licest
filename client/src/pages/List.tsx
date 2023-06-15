@@ -28,7 +28,7 @@ export const List = (props: { name: string, request: string }) => {
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [fetchData])
 
   return (
     <div className="List-category">

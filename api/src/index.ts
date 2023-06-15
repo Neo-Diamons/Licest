@@ -1,6 +1,6 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
-import mysql from 'mysql';
+import mysql from 'mysql2';
 
 dotenv.config();
 
@@ -13,10 +13,10 @@ app.use((req, res, next) => {
 });
 
 const connection = mysql.createConnection({
+    database: process.env.MYSQL_DATABASE,
     host: process.env.MYSQL_HOST,
     user: process.env.MYSQL_USER,
     password: process.env.MYSQL_ROOT_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
     port: 3306,
 });
 
