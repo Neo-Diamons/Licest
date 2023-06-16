@@ -15,20 +15,20 @@ export const List = (props: { name: string, request: string }) => {
 
   const [listData, setListData] = React.useState<DataType[]>([]);
 
-  const fetchData = () => {
-    fetch("http://localhost:8080/" + props.request)
-      .then(response => {
-      return response.json()
-    }).then(data => {
-      setListData(data)
-    }).catch(function(error) {
-      console.log('Request failed', error)
-    });
-  }
-
   useEffect(() => {
+    const fetchData = () => {
+      fetch("http://localhost:8080/" + props.request)
+          .then(response => {
+            return response.json()
+          }).then(data => {
+            setListData(data)
+          }).catch(function(error) {
+            console.log('Request failed', error)
+          });
+    }
+
     fetchData()
-  }, [fetchData])
+  }, [props.request])
 
   return (
     <div className="List-category">
