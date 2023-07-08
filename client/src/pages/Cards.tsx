@@ -1,7 +1,7 @@
 import React from "react";
 import "./Cards.css";
 
-import { DataType } from "../types/DataType";
+import { DataType } from "../types/dataType";
 
 export const Cards = (props: { data: DataType }) => {
   let description;

@@ -1,6 +1,4 @@
-import React from "react";
-
-export type DataType = {
+type Cards = {
     id: number;
     name: string;
     image: string;
@@ -8,3 +6,5 @@ export type DataType = {
     current: boolean;
     publish: string | null;
 }
+
+export default Cards;

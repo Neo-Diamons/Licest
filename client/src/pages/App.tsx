@@ -10,9 +10,9 @@ function App() {
         <h1>Licest</h1>
       </div>
       <div className="App-body">
-        <List name="In Progress" request="current" />
-        <List name="Announce" request="publish" />
-        <List name="Finish" request="finish" />
+        <List name="In Progress" status="Current" />
+        <List name="Upcoming" status="Upcoming" />
+        <List name="Finished" status="Finished" />
       </div>
     </div>
   );

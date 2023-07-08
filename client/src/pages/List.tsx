@@ -2,10 +2,10 @@ import React, {useEffect} from "react";
 import "./List.css";
 
 import { Cards } from './Cards';
-import { DataType } from "../types/DataType";
+import { DataType } from "../types/dataType";
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
 
-export const List = (props: { name: string, request: string }) => {
+export const List = (props: { name: string, status: string }) => {
   const [open, setOpen] = React.useState(true);
   const rotate = open ? "rotate(0deg)" : "rotate(-90deg)";
 
@@ -17,18 +17,16 @@ export const List = (props: { name: string, request: string }) => {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://localhost:8080/" + props.request)
-          .then(response => {
-            return response.json()
-          }).then(data => {
-            setListData(data)
-          }).catch(function(error) {
-            console.log('Request failed', error)
-          });
+        fetch(`http://${process.env.REACT_APP_API_HOST}:${process.env.REACT_APP_API_PORT}/api/cards/status/${props.status}`, {
+            method: "GET"
+        })
+            .then(res => res.json())
+            .then(json => setListData(json))
+            .catch(err => console.log(err));
     }
 
     fetchData()
-  }, [props.request])
+  }, [props.status])
 
   return (
     <div className="List-category">

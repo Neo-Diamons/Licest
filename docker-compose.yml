@@ -10,10 +10,11 @@ services:
     environment:
       MYSQL_DATABASE: "${MYSQL_DATABASE}"
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_PORT: "${MYSQL_PORT}"
     expose:
-      - "3306"
+      - "${MYSQL_PORT}"
     ports:
-      - "3306:3306"
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
 
   api:
     build: ./api
@@ -24,13 +25,18 @@ services:
       MYSQL_HOST: "${MYSQL_HOST}"
       MYSQL_USER: "${MYSQL_USER}"
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_PORT: "${MYSQL_PORT}"
+      API_PORT: "${API_PORT}"
     ports:
-      - "8080:8080"
+      - "${API_PORT}:${API_PORT}"
 
   client:
     build: ./client
     depends_on:
       - api
+    environment:
+      REACT_APP_API_HOST: "${API_HOST}"
+      REACT_APP_API_PORT: "${API_PORT}"
     ports:
       - "3000:3000"
 
