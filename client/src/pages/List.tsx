@@ -1,8 +1,8 @@
 import React, {useEffect} from "react";
+import Cards from "../types/cards";
 import "./List.css";
 
-import { Cards } from './Cards';
-import { DataType } from "../types/dataType";
+import { CardsSlot } from './CardsSlot';
 import { ReactComponent as Arrow } from '../svg/arrow.svg';
 
 export const List = (props: { name: string, status: string }) => {
@@ -13,7 +13,7 @@ export const List = (props: { name: string, status: string }) => {
     setOpen(!open);
   }
 
-  const [listData, setListData] = React.useState<DataType[]>([]);
+  const [listData, setListData] = React.useState<Cards[]>([]);
 
   useEffect(() => {
     const fetchData = () => {
@@ -39,7 +39,7 @@ export const List = (props: { name: string, status: string }) => {
       {open ? (
         <div className="List-category-items">
           {listData.map((data) => (
-            <Cards key={data.name} data={data} />
+            <CardsSlot key={data.name} data={data} />
           ))}
         </div>
       ) : null}

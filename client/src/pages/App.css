@@ -31,6 +31,33 @@
   line-height: 60px;
 }
 
+.App-header-button {
+  margin: 5px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+
+  background-color: transparent;
+
+  border: none;
+  border-radius: 10px;
+}
+
+.App-header-button:hover {
+  background-color: var(--tertiary-color);
+}
+
+.App-header-button-plus {
+  width: 40px;
+  height: 40px;
+
+  fill: var(--primary-font-color);
+
+  transition: all 0.1s linear;
+  -webkit-transition: all 0.1s linear;
+  -moz-transition: all 0.1s linear;
+}
+
 .App-body {
   display: flex;
   flex-direction: column;

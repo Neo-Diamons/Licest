@@ -1,4 +1,4 @@
-export type DataType = {
+export type card = {
     id: number;
     name: string;
     image: string;

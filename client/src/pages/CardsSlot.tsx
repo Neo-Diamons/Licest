@@ -1,9 +1,9 @@
 import React from "react";
-import "./Cards.css";
+import Cards from "../types/cards";
+import "./CardsSlot.css";
 
-import { DataType } from "../types/dataType";
 
-export const Cards = (props: { data: DataType }) => {
+export const CardsSlot = (props: { data: Cards }) => {
   let description;
 
   if (props.data.publish !== null) {

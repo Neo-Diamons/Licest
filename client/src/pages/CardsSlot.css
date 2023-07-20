@@ -19,7 +19,7 @@
 .Card-content {
     height: 55px;
 
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
 
     display: flex;
     flex-direction: column;
