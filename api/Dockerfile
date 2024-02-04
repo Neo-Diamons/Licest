@@ -1,15 +1,15 @@
-FROM node:lts-alpine
-LABEL authors="diamons"
+FROM node:21-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
-COPY tsconfig.json ./
-
 RUN npm install
 
-COPY src ./src
+COPY . .
+RUN npx prisma generate
 
-EXPOSE 8080
+EXPOSE ${API_PORT}
 
-CMD ["npm", "start"]
+ENV TSC_WATCHFILE="PriorityPollingInterval"
+
+CMD ["npm", "run", "start:dev"]
